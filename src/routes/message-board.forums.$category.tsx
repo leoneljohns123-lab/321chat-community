@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { forumThreads, forumCategories } from "@/data/forum-mock";
 
-export const Route = createFileRoute("/_forum/forums/$category")({
+export const Route = createFileRoute("/message-board/forums/$category")({
   head: () => ({
     meta: [
       { title: "Forum Board — 321.Chat Message Board" },
