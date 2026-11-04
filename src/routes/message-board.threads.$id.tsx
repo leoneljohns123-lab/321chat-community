@@ -7,15 +7,17 @@ export const Route = createFileRoute("/message-board/threads/$id")({
     if (!thread) notFound();
     return { thread };
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: `${(loaderData as { thread: { title: string } }).thread.title} — 321.Chat Message Board` },
+  head: ({ loaderData }) => {
+    const title = loaderData?.thread?.title ?? "Discussion Thread";
+    const excerpt = loaderData?.thread?.excerpt ?? "";
+    return [
+      { title: `${title} — 321.Chat Message Board` },
       { name: "description", content: "A discussion thread on the 321.Chat message board." },
-      { property: "og:title", content: loaderData.thread.title },
-      { property: "og:description", content: loaderData.thread.excerpt.slice(0, 140) },
+      { property: "og:title", content: title },
+      { property: "og:description", content: excerpt.slice(0, 140) || "A discussion thread on the message board." },
       { property: "og:type", content: "website" },
-    ],
-  }),
+    ];
+  },
   component: ThreadPage,
 });
 
