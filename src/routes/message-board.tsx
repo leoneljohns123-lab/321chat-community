@@ -2,7 +2,7 @@ import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
 import { useState } from "react";
 import { Search, LogIn, UserPlus } from "lucide-react";
 
-export const Route = createFileRoute("/_forum")({
+export const Route = createFileRoute("/message-board")({
   component: ForumLayout,
 });
 
