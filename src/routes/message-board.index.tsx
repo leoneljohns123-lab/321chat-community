@@ -3,7 +3,7 @@ import { useState } from "react";
 import { forumCategories, forumMembers, mediaGallery } from "@/data/forum-mock";
 import { PostThreadButton } from "@/components/forum/ForumWidgets";
 
-export const Route = createFileRoute("/_forum/")({
+export const Route = createFileRoute("/message-board/")({
   head: () => ({
     meta: [
       { title: "Free Chat Forum / Message Board — 321.Chat" },

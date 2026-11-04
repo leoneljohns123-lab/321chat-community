@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { forumThreads } from "@/data/forum-mock";
 
-export const Route = createFileRoute("/_forum/whats-new")({
+export const Route = createFileRoute("/message-board/whats-new")({
   head: () => ({
     meta: [
       { title: "What's New — 321.Chat Message Board" },

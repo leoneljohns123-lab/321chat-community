@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 
-export const Route = createFileRoute("/_forum/register")({
+export const Route = createFileRoute("/message-board/register")({
   head: () => ({
     meta: [
       { title: "Register — 321.Chat Message Board" },

@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { forumThreads } from "@/data/forum-mock";
 
-export const Route = createFileRoute("/_forum/threads/$id")({
+export const Route = createFileRoute("/message-board/threads/$id")({
   loader: ({ params }) => {
     const thread = forumThreads.find((t) => String(t.id) === params.id);
     if (!thread) notFound();
