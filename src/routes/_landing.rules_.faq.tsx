@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, PageBody } from "@/components/landing/PageChrome";
 import { FaqBlock } from "@/components/landing/StatTile";
 
-export const Route = createFileRoute("/_landing/rules/faq")({
+export const Route = createFileRoute("/_landing/rules_/faq")({
   head: () => ({
     meta: [
       { title: "Frequently Asked Questions — 321.Chat" },

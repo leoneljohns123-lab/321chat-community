@@ -30,12 +30,12 @@ import { Route as MessageBoardMembersRouteImport } from './routes/message-board.
 import { Route as MessageBoardRegisterRouteImport } from './routes/message-board.register'
 import { Route as MessageBoardSearchRouteImport } from './routes/message-board.search'
 import { Route as MessageBoardWhatsNewRouteImport } from './routes/message-board.whats-new'
-import { Route as LandingContactAdministratorRouteImport } from './routes/_landing.contact.administrator'
-import { Route as LandingContactBannedRouteImport } from './routes/_landing.contact.banned'
-import { Route as LandingContactFeedbackRouteImport } from './routes/_landing.contact.feedback'
-import { Route as LandingContactModeratorApplicationRouteImport } from './routes/_landing.contact.moderator-application'
+import { Route as LandingContactAdministratorRouteImport } from './routes/_landing.contact_.administrator'
+import { Route as LandingContactBannedRouteImport } from './routes/_landing.contact_.banned'
+import { Route as LandingContactFeedbackRouteImport } from './routes/_landing.contact_.feedback'
+import { Route as LandingContactModeratorApplicationRouteImport } from './routes/_landing.contact_.moderator-application'
 import { Route as LandingRoomsSlugRouteImport } from './routes/_landing.rooms.$slug'
-import { Route as LandingRulesFaqRouteImport } from './routes/_landing.rules.faq'
+import { Route as LandingRulesFaqRouteImport } from './routes/_landing.rules_.faq'
 import { Route as MessageBoardForumsCategoryRouteImport } from './routes/message-board.forums.$category'
 import { Route as MessageBoardThreadsIdRouteImport } from './routes/message-board.threads.$id'
 
@@ -145,25 +145,25 @@ const MessageBoardWhatsNewRoute = MessageBoardWhatsNewRouteImport.update({
 } as any)
 const LandingContactAdministratorRoute =
   LandingContactAdministratorRouteImport.update({
-    id: '/administrator',
-    path: '/administrator',
-    getParentRoute: () => LandingContactRoute,
+    id: '/contact_/administrator',
+    path: '/contact/administrator',
+    getParentRoute: () => LandingRoute,
   } as any)
 const LandingContactBannedRoute = LandingContactBannedRouteImport.update({
-  id: '/banned',
-  path: '/banned',
-  getParentRoute: () => LandingContactRoute,
+  id: '/contact_/banned',
+  path: '/contact/banned',
+  getParentRoute: () => LandingRoute,
 } as any)
 const LandingContactFeedbackRoute = LandingContactFeedbackRouteImport.update({
-  id: '/feedback',
-  path: '/feedback',
-  getParentRoute: () => LandingContactRoute,
+  id: '/contact_/feedback',
+  path: '/contact/feedback',
+  getParentRoute: () => LandingRoute,
 } as any)
 const LandingContactModeratorApplicationRoute =
   LandingContactModeratorApplicationRouteImport.update({
-    id: '/moderator-application',
-    path: '/moderator-application',
-    getParentRoute: () => LandingContactRoute,
+    id: '/contact_/moderator-application',
+    path: '/contact/moderator-application',
+    getParentRoute: () => LandingRoute,
   } as any)
 const LandingRoomsSlugRoute = LandingRoomsSlugRouteImport.update({
   id: '/rooms/$slug',
@@ -171,9 +171,9 @@ const LandingRoomsSlugRoute = LandingRoomsSlugRouteImport.update({
   getParentRoute: () => LandingRoute,
 } as any)
 const LandingRulesFaqRoute = LandingRulesFaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => LandingRulesRoute,
+  id: '/rules_/faq',
+  path: '/rules/faq',
+  getParentRoute: () => LandingRoute,
 } as any)
 const MessageBoardForumsCategoryRoute =
   MessageBoardForumsCategoryRouteImport.update({
@@ -192,14 +192,14 @@ export interface FileRoutesByFullPath {
   '/chat': typeof ChatRoute
   '/message-board': typeof MessageBoardRouteWithChildren
   '/about': typeof LandingAboutRoute
-  '/contact': typeof LandingContactRouteWithChildren
+  '/contact': typeof LandingContactRoute
   '/disclaimer': typeof LandingDisclaimerRoute
   '/games': typeof LandingGamesRoute
   '/gold': typeof LandingGoldRoute
   '/guide': typeof LandingGuideRoute
   '/privacy': typeof LandingPrivacyRoute
   '/reviews': typeof LandingReviewsRoute
-  '/rules': typeof LandingRulesRouteWithChildren
+  '/rules': typeof LandingRulesRoute
   '/terms-of-use': typeof LandingTermsOfUseRoute
   '/vip': typeof LandingVipRoute
   '/message-board/login': typeof MessageBoardLoginRoute
@@ -220,14 +220,14 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/chat': typeof ChatRoute
   '/about': typeof LandingAboutRoute
-  '/contact': typeof LandingContactRouteWithChildren
+  '/contact': typeof LandingContactRoute
   '/disclaimer': typeof LandingDisclaimerRoute
   '/games': typeof LandingGamesRoute
   '/gold': typeof LandingGoldRoute
   '/guide': typeof LandingGuideRoute
   '/privacy': typeof LandingPrivacyRoute
   '/reviews': typeof LandingReviewsRoute
-  '/rules': typeof LandingRulesRouteWithChildren
+  '/rules': typeof LandingRulesRoute
   '/terms-of-use': typeof LandingTermsOfUseRoute
   '/vip': typeof LandingVipRoute
   '/message-board/login': typeof MessageBoardLoginRoute
@@ -252,14 +252,14 @@ export interface FileRoutesById {
   '/chat': typeof ChatRoute
   '/message-board': typeof MessageBoardRouteWithChildren
   '/_landing/about': typeof LandingAboutRoute
-  '/_landing/contact': typeof LandingContactRouteWithChildren
+  '/_landing/contact': typeof LandingContactRoute
   '/_landing/disclaimer': typeof LandingDisclaimerRoute
   '/_landing/games': typeof LandingGamesRoute
   '/_landing/gold': typeof LandingGoldRoute
   '/_landing/guide': typeof LandingGuideRoute
   '/_landing/privacy': typeof LandingPrivacyRoute
   '/_landing/reviews': typeof LandingReviewsRoute
-  '/_landing/rules': typeof LandingRulesRouteWithChildren
+  '/_landing/rules': typeof LandingRulesRoute
   '/_landing/terms-of-use': typeof LandingTermsOfUseRoute
   '/_landing/vip': typeof LandingVipRoute
   '/message-board/login': typeof MessageBoardLoginRoute
@@ -269,12 +269,12 @@ export interface FileRoutesById {
   '/message-board/whats-new': typeof MessageBoardWhatsNewRoute
   '/_landing/': typeof LandingIndexRoute
   '/message-board/': typeof MessageBoardIndexRoute
-  '/_landing/contact/administrator': typeof LandingContactAdministratorRoute
-  '/_landing/contact/banned': typeof LandingContactBannedRoute
-  '/_landing/contact/feedback': typeof LandingContactFeedbackRoute
-  '/_landing/contact/moderator-application': typeof LandingContactModeratorApplicationRoute
+  '/_landing/contact_/administrator': typeof LandingContactAdministratorRoute
+  '/_landing/contact_/banned': typeof LandingContactBannedRoute
+  '/_landing/contact_/feedback': typeof LandingContactFeedbackRoute
+  '/_landing/contact_/moderator-application': typeof LandingContactModeratorApplicationRoute
   '/_landing/rooms/$slug': typeof LandingRoomsSlugRoute
-  '/_landing/rules/faq': typeof LandingRulesFaqRoute
+  '/_landing/rules_/faq': typeof LandingRulesFaqRoute
   '/message-board/forums/$category': typeof MessageBoardForumsCategoryRoute
   '/message-board/threads/$id': typeof MessageBoardThreadsIdRoute
 }
@@ -361,12 +361,12 @@ export interface FileRouteTypes {
     | '/message-board/whats-new'
     | '/_landing/'
     | '/message-board/'
-    | '/_landing/contact/administrator'
-    | '/_landing/contact/banned'
-    | '/_landing/contact/feedback'
-    | '/_landing/contact/moderator-application'
+    | '/_landing/contact_/administrator'
+    | '/_landing/contact_/banned'
+    | '/_landing/contact_/feedback'
+    | '/_landing/contact_/moderator-application'
     | '/_landing/rooms/$slug'
-    | '/_landing/rules/faq'
+    | '/_landing/rules_/faq'
     | '/message-board/forums/$category'
     | '/message-board/threads/$id'
   fileRoutesById: FileRoutesById
@@ -526,33 +526,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MessageBoardWhatsNewRouteImport
       parentRoute: typeof MessageBoardRoute
     }
-    '/_landing/contact/administrator': {
-      id: '/_landing/contact/administrator'
-      path: '/administrator'
+    '/_landing/contact_/administrator': {
+      id: '/_landing/contact_/administrator'
+      path: '/contact/administrator'
       fullPath: '/contact/administrator'
       preLoaderRoute: typeof LandingContactAdministratorRouteImport
-      parentRoute: typeof LandingContactRoute
+      parentRoute: typeof LandingRoute
     }
-    '/_landing/contact/banned': {
-      id: '/_landing/contact/banned'
-      path: '/banned'
+    '/_landing/contact_/banned': {
+      id: '/_landing/contact_/banned'
+      path: '/contact/banned'
       fullPath: '/contact/banned'
       preLoaderRoute: typeof LandingContactBannedRouteImport
-      parentRoute: typeof LandingContactRoute
+      parentRoute: typeof LandingRoute
     }
-    '/_landing/contact/feedback': {
-      id: '/_landing/contact/feedback'
-      path: '/feedback'
+    '/_landing/contact_/feedback': {
+      id: '/_landing/contact_/feedback'
+      path: '/contact/feedback'
       fullPath: '/contact/feedback'
       preLoaderRoute: typeof LandingContactFeedbackRouteImport
-      parentRoute: typeof LandingContactRoute
+      parentRoute: typeof LandingRoute
     }
-    '/_landing/contact/moderator-application': {
-      id: '/_landing/contact/moderator-application'
-      path: '/moderator-application'
+    '/_landing/contact_/moderator-application': {
+      id: '/_landing/contact_/moderator-application'
+      path: '/contact/moderator-application'
       fullPath: '/contact/moderator-application'
       preLoaderRoute: typeof LandingContactModeratorApplicationRouteImport
-      parentRoute: typeof LandingContactRoute
+      parentRoute: typeof LandingRoute
     }
     '/_landing/rooms/$slug': {
       id: '/_landing/rooms/$slug'
@@ -561,12 +561,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LandingRoomsSlugRouteImport
       parentRoute: typeof LandingRoute
     }
-    '/_landing/rules/faq': {
-      id: '/_landing/rules/faq'
-      path: '/faq'
+    '/_landing/rules_/faq': {
+      id: '/_landing/rules_/faq'
+      path: '/rules/faq'
       fullPath: '/rules/faq'
       preLoaderRoute: typeof LandingRulesFaqRouteImport
-      parentRoute: typeof LandingRulesRoute
+      parentRoute: typeof LandingRoute
     }
     '/message-board/forums/$category': {
       id: '/message-board/forums/$category'
@@ -585,67 +585,47 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface LandingContactRouteChildren {
-  LandingContactAdministratorRoute: typeof LandingContactAdministratorRoute
-  LandingContactBannedRoute: typeof LandingContactBannedRoute
-  LandingContactFeedbackRoute: typeof LandingContactFeedbackRoute
-  LandingContactModeratorApplicationRoute: typeof LandingContactModeratorApplicationRoute
-}
-
-const LandingContactRouteChildren: LandingContactRouteChildren = {
-  LandingContactAdministratorRoute: LandingContactAdministratorRoute,
-  LandingContactBannedRoute: LandingContactBannedRoute,
-  LandingContactFeedbackRoute: LandingContactFeedbackRoute,
-  LandingContactModeratorApplicationRoute:
-    LandingContactModeratorApplicationRoute,
-}
-
-const LandingContactRouteWithChildren = LandingContactRoute._addFileChildren(
-  LandingContactRouteChildren,
-)
-
-interface LandingRulesRouteChildren {
-  LandingRulesFaqRoute: typeof LandingRulesFaqRoute
-}
-
-const LandingRulesRouteChildren: LandingRulesRouteChildren = {
-  LandingRulesFaqRoute: LandingRulesFaqRoute,
-}
-
-const LandingRulesRouteWithChildren = LandingRulesRoute._addFileChildren(
-  LandingRulesRouteChildren,
-)
-
 interface LandingRouteChildren {
   LandingAboutRoute: typeof LandingAboutRoute
-  LandingContactRoute: typeof LandingContactRouteWithChildren
+  LandingContactRoute: typeof LandingContactRoute
   LandingDisclaimerRoute: typeof LandingDisclaimerRoute
   LandingGamesRoute: typeof LandingGamesRoute
   LandingGoldRoute: typeof LandingGoldRoute
   LandingGuideRoute: typeof LandingGuideRoute
   LandingPrivacyRoute: typeof LandingPrivacyRoute
   LandingReviewsRoute: typeof LandingReviewsRoute
-  LandingRulesRoute: typeof LandingRulesRouteWithChildren
+  LandingRulesRoute: typeof LandingRulesRoute
   LandingTermsOfUseRoute: typeof LandingTermsOfUseRoute
   LandingVipRoute: typeof LandingVipRoute
   LandingIndexRoute: typeof LandingIndexRoute
+  LandingContactAdministratorRoute: typeof LandingContactAdministratorRoute
+  LandingContactBannedRoute: typeof LandingContactBannedRoute
+  LandingContactFeedbackRoute: typeof LandingContactFeedbackRoute
+  LandingContactModeratorApplicationRoute: typeof LandingContactModeratorApplicationRoute
   LandingRoomsSlugRoute: typeof LandingRoomsSlugRoute
+  LandingRulesFaqRoute: typeof LandingRulesFaqRoute
 }
 
 const LandingRouteChildren: LandingRouteChildren = {
   LandingAboutRoute: LandingAboutRoute,
-  LandingContactRoute: LandingContactRouteWithChildren,
+  LandingContactRoute: LandingContactRoute,
   LandingDisclaimerRoute: LandingDisclaimerRoute,
   LandingGamesRoute: LandingGamesRoute,
   LandingGoldRoute: LandingGoldRoute,
   LandingGuideRoute: LandingGuideRoute,
   LandingPrivacyRoute: LandingPrivacyRoute,
   LandingReviewsRoute: LandingReviewsRoute,
-  LandingRulesRoute: LandingRulesRouteWithChildren,
+  LandingRulesRoute: LandingRulesRoute,
   LandingTermsOfUseRoute: LandingTermsOfUseRoute,
   LandingVipRoute: LandingVipRoute,
   LandingIndexRoute: LandingIndexRoute,
+  LandingContactAdministratorRoute: LandingContactAdministratorRoute,
+  LandingContactBannedRoute: LandingContactBannedRoute,
+  LandingContactFeedbackRoute: LandingContactFeedbackRoute,
+  LandingContactModeratorApplicationRoute:
+    LandingContactModeratorApplicationRoute,
   LandingRoomsSlugRoute: LandingRoomsSlugRoute,
+  LandingRulesFaqRoute: LandingRulesFaqRoute,
 }
 
 const LandingRouteWithChildren =

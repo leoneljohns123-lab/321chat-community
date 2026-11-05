@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, PageBody } from "@/components/landing/PageChrome";
 import { InquiryForm } from "@/components/landing/InquiryForm";
 
-export const Route = createFileRoute("/_landing/contact/banned")({
+export const Route = createFileRoute("/_landing/contact_/banned")({
   head: () => ({
     meta: [
       { title: "Ban Appeal — 321.Chat" },
