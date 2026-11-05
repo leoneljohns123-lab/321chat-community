@@ -39,10 +39,11 @@ export function InquiryForm({
     e.preventDefault();
     const next: Record<string, string> = {};
     fields.forEach((f) => {
-      if (f.required && !values[f.name as string]?.trim())
-        next[f.name as string] = `${f.label} is required.`;
-      if (f.type === "email" && values[f.name as string] && !values[f.name as string].includes("@"))
-        next[f.name as string] = "Enter a valid email address.";
+      const val = values[f.name] ?? "";
+      if (f.required && !val.trim())
+        next[f.name] = `${f.label} is required.`;
+      if (f.type === "email" && val && !val.includes("@"))
+        next[f.name] = "Enter a valid email address.";
     });
     if (messageRequired && !values["message"]?.trim())
       next.message = `${messageLabel} is required.`;
@@ -135,11 +136,11 @@ export function InquiryForm({
             onChange={(e) => set("message", e.target.value)}
             className={cn(
               "rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring",
-              errors.message ? "border-destructive" : "border-input"
+              errors["message"] ? "border-destructive" : "border-input"
             )}
           />
-          {errors.message && (
-            <span className="text-xs text-destructive">{errors.message}</span>
+          {errors["message"] && (
+            <span className="text-xs text-destructive">{errors["message"]}</span>
           )}
         </label>
         <button
