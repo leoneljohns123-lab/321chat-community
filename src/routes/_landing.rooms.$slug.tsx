@@ -40,7 +40,7 @@ function RoomLandingPage() {
       <RoomHero
         title={room.label}
         tagline={room.tagline}
-        subtitle={room.subtitle}
+        subtitle={room.subtitle ?? ""}
         ctaLabel={`Enter ${room.label}`}
       />
 
