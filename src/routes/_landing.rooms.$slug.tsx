@@ -7,7 +7,7 @@ import { rooms, roomBySlug, type Room } from "@/data/rooms";
 export const Route = createFileRoute("/_landing/rooms/$slug")({
   loader: ({ params }) => {
     const room = roomBySlug(params.slug);
-    if (!room) notFound();
+    if (!room) throw notFound();
     return { room };
   },
   head: ({ loaderData }) => {
@@ -31,6 +31,7 @@ export const Route = createFileRoute("/_landing/rooms/$slug")({
 
 function RoomLandingPage() {
   const { room } = Route.useLoaderData();
+  if (!room) throw notFound();
 
   return (
     <>

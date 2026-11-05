@@ -4,7 +4,7 @@ import { forumThreads } from "@/data/forum-mock";
 export const Route = createFileRoute("/message-board/threads/$id")({
   loader: ({ params }) => {
     const thread = forumThreads.find((t) => String(t.id) === params.id);
-    if (!thread) notFound();
+    if (!thread) throw notFound();
     return { thread };
   },
   head: ({ loaderData }) => {
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/message-board/threads/$id")({
 
 function ThreadPage() {
   const thread = Route.useLoaderData().thread;
-  if (!thread) notFound();
+  if (!thread) throw notFound();
 
   return (
     <>
