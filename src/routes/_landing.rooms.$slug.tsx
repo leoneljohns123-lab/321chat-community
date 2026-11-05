@@ -7,37 +7,40 @@ import { rooms, roomBySlug, type Room } from "@/data/rooms";
 export const Route = createFileRoute("/_landing/rooms/$slug")({
   loader: ({ params }) => {
     const room = roomBySlug(params.slug);
-    if (!room) notFound();
+    if (!room) throw notFound();
     return { room };
   },
   head: ({ loaderData }) => {
-    const room = (loaderData as { room: Room }).room;
-    return [
-      { title: `${room.label} — 321.Chat` },
-      {
-        name: "description",
-        content: `${room.label} on 321.Chat: ${room.subtitle} Free, moderated, no download required.`,
-      },
-      { property: "og:title", content: `${room.label} — 321.Chat` },
-      {
-        property: "og:description",
-        content: `${room.subtitle} Free, moderated, no download required.`,
-      },
-      { property: "og:type", content: "website" },
-    ];
+    const room = loaderData?.room;
+    return {
+      meta: [
+        { title: `${room?.label ?? "Chat Room"} — 321.Chat` },
+        {
+          name: "description",
+          content: `${room?.label ?? "Chat room"} on 321.Chat: ${room?.subtitle ?? ""} Free, moderated, no download required.`,
+        },
+        { property: "og:title", content: `${room?.label ?? "Chat Room"} — 321.Chat` },
+        {
+          property: "og:description",
+          content: `${room?.subtitle ?? "Free, moderated chat"} Free, moderated, no download required.`,
+        },
+        { property: "og:type", content: "website" },
+      ],
+    };
   },
   component: RoomLandingPage,
 });
 
 function RoomLandingPage() {
   const { room } = Route.useLoaderData();
+  if (!room) throw notFound();
 
   return (
     <>
       <RoomHero
         title={room.label}
         tagline={room.tagline}
-        subtitle={room.subtitle}
+        subtitle={room.subtitle ?? ""}
         ctaLabel={`Enter ${room.label}`}
       />
 

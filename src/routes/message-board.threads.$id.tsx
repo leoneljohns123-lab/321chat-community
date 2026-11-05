@@ -4,25 +4,28 @@ import { forumThreads } from "@/data/forum-mock";
 export const Route = createFileRoute("/message-board/threads/$id")({
   loader: ({ params }) => {
     const thread = forumThreads.find((t) => String(t.id) === params.id);
-    if (!thread) notFound();
+    if (!thread) throw notFound();
     return { thread };
   },
   head: ({ loaderData }) => {
     const title = loaderData?.thread?.title ?? "Discussion Thread";
     const excerpt = loaderData?.thread?.excerpt ?? "";
-    return [
-      { title: `${title} — 321.Chat Message Board` },
-      { name: "description", content: "A discussion thread on the 321.Chat message board." },
-      { property: "og:title", content: title },
-      { property: "og:description", content: excerpt.slice(0, 140) || "A discussion thread on the message board." },
-      { property: "og:type", content: "website" },
-    ];
+    return {
+      meta: [
+        { title: `${title} — 321.Chat Message Board` },
+        { name: "description", content: "A discussion thread on the 321.Chat message board." },
+        { property: "og:title", content: title },
+        { property: "og:description", content: excerpt.slice(0, 140) || "A discussion thread on the message board." },
+        { property: "og:type", content: "website" },
+      ],
+    };
   },
   component: ThreadPage,
 });
 
 function ThreadPage() {
-  const { thread } = Route.useLoaderData();
+  const thread = Route.useLoaderData().thread;
+  if (!thread) throw notFound();
 
   return (
     <>

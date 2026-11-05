@@ -9,50 +9,658 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as LandingRouteImport } from './routes/_landing'
+import { Route as ChatRouteImport } from './routes/chat'
+import { Route as MessageBoardRouteImport } from './routes/message-board'
+import { Route as LandingIndexRouteImport } from './routes/_landing.index'
+import { Route as LandingAboutRouteImport } from './routes/_landing.about'
+import { Route as LandingContactRouteImport } from './routes/_landing.contact'
+import { Route as LandingDisclaimerRouteImport } from './routes/_landing.disclaimer'
+import { Route as LandingGamesRouteImport } from './routes/_landing.games'
+import { Route as LandingGoldRouteImport } from './routes/_landing.gold'
+import { Route as LandingGuideRouteImport } from './routes/_landing.guide'
+import { Route as LandingPrivacyRouteImport } from './routes/_landing.privacy'
+import { Route as LandingReviewsRouteImport } from './routes/_landing.reviews'
+import { Route as LandingRulesRouteImport } from './routes/_landing.rules'
+import { Route as LandingTermsOfUseRouteImport } from './routes/_landing.terms-of-use'
+import { Route as LandingVipRouteImport } from './routes/_landing.vip'
+import { Route as MessageBoardIndexRouteImport } from './routes/message-board.index'
+import { Route as MessageBoardLoginRouteImport } from './routes/message-board.login'
+import { Route as MessageBoardMembersRouteImport } from './routes/message-board.members'
+import { Route as MessageBoardRegisterRouteImport } from './routes/message-board.register'
+import { Route as MessageBoardSearchRouteImport } from './routes/message-board.search'
+import { Route as MessageBoardWhatsNewRouteImport } from './routes/message-board.whats-new'
+import { Route as LandingContactAdministratorRouteImport } from './routes/_landing.contact_.administrator'
+import { Route as LandingContactBannedRouteImport } from './routes/_landing.contact_.banned'
+import { Route as LandingContactFeedbackRouteImport } from './routes/_landing.contact_.feedback'
+import { Route as LandingContactModeratorApplicationRouteImport } from './routes/_landing.contact_.moderator-application'
+import { Route as LandingRoomsSlugRouteImport } from './routes/_landing.rooms.$slug'
+import { Route as LandingRulesFaqRouteImport } from './routes/_landing.rules_.faq'
+import { Route as MessageBoardForumsCategoryRouteImport } from './routes/message-board.forums.$category'
+import { Route as MessageBoardThreadsIdRouteImport } from './routes/message-board.threads.$id'
 
-const IndexRoute = IndexRouteImport.update({
+const LandingRoute = LandingRouteImport.update({
+  id: '/_landing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MessageBoardRoute = MessageBoardRouteImport.update({
+  id: '/message-board',
+  path: '/message-board',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LandingIndexRoute = LandingIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingAboutRoute = LandingAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingContactRoute = LandingContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingDisclaimerRoute = LandingDisclaimerRouteImport.update({
+  id: '/disclaimer',
+  path: '/disclaimer',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingGamesRoute = LandingGamesRouteImport.update({
+  id: '/games',
+  path: '/games',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingGoldRoute = LandingGoldRouteImport.update({
+  id: '/gold',
+  path: '/gold',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingGuideRoute = LandingGuideRouteImport.update({
+  id: '/guide',
+  path: '/guide',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingPrivacyRoute = LandingPrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingReviewsRoute = LandingReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingRulesRoute = LandingRulesRouteImport.update({
+  id: '/rules',
+  path: '/rules',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingTermsOfUseRoute = LandingTermsOfUseRouteImport.update({
+  id: '/terms-of-use',
+  path: '/terms-of-use',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingVipRoute = LandingVipRouteImport.update({
+  id: '/vip',
+  path: '/vip',
+  getParentRoute: () => LandingRoute,
+} as any)
+const MessageBoardIndexRoute = MessageBoardIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MessageBoardRoute,
+} as any)
+const MessageBoardLoginRoute = MessageBoardLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => MessageBoardRoute,
+} as any)
+const MessageBoardMembersRoute = MessageBoardMembersRouteImport.update({
+  id: '/members',
+  path: '/members',
+  getParentRoute: () => MessageBoardRoute,
+} as any)
+const MessageBoardRegisterRoute = MessageBoardRegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => MessageBoardRoute,
+} as any)
+const MessageBoardSearchRoute = MessageBoardSearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => MessageBoardRoute,
+} as any)
+const MessageBoardWhatsNewRoute = MessageBoardWhatsNewRouteImport.update({
+  id: '/whats-new',
+  path: '/whats-new',
+  getParentRoute: () => MessageBoardRoute,
+} as any)
+const LandingContactAdministratorRoute =
+  LandingContactAdministratorRouteImport.update({
+    id: '/contact_/administrator',
+    path: '/contact/administrator',
+    getParentRoute: () => LandingRoute,
+  } as any)
+const LandingContactBannedRoute = LandingContactBannedRouteImport.update({
+  id: '/contact_/banned',
+  path: '/contact/banned',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingContactFeedbackRoute = LandingContactFeedbackRouteImport.update({
+  id: '/contact_/feedback',
+  path: '/contact/feedback',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingContactModeratorApplicationRoute =
+  LandingContactModeratorApplicationRouteImport.update({
+    id: '/contact_/moderator-application',
+    path: '/contact/moderator-application',
+    getParentRoute: () => LandingRoute,
+  } as any)
+const LandingRoomsSlugRoute = LandingRoomsSlugRouteImport.update({
+  id: '/rooms/$slug',
+  path: '/rooms/$slug',
+  getParentRoute: () => LandingRoute,
+} as any)
+const LandingRulesFaqRoute = LandingRulesFaqRouteImport.update({
+  id: '/rules_/faq',
+  path: '/rules/faq',
+  getParentRoute: () => LandingRoute,
+} as any)
+const MessageBoardForumsCategoryRoute =
+  MessageBoardForumsCategoryRouteImport.update({
+    id: '/forums/$category',
+    path: '/forums/$category',
+    getParentRoute: () => MessageBoardRoute,
+  } as any)
+const MessageBoardThreadsIdRoute = MessageBoardThreadsIdRouteImport.update({
+  id: '/threads/$id',
+  path: '/threads/$id',
+  getParentRoute: () => MessageBoardRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof LandingIndexRoute
+  '/chat': typeof ChatRoute
+  '/message-board': typeof MessageBoardRouteWithChildren
+  '/about': typeof LandingAboutRoute
+  '/contact': typeof LandingContactRoute
+  '/disclaimer': typeof LandingDisclaimerRoute
+  '/games': typeof LandingGamesRoute
+  '/gold': typeof LandingGoldRoute
+  '/guide': typeof LandingGuideRoute
+  '/privacy': typeof LandingPrivacyRoute
+  '/reviews': typeof LandingReviewsRoute
+  '/rules': typeof LandingRulesRoute
+  '/terms-of-use': typeof LandingTermsOfUseRoute
+  '/vip': typeof LandingVipRoute
+  '/message-board/login': typeof MessageBoardLoginRoute
+  '/message-board/members': typeof MessageBoardMembersRoute
+  '/message-board/register': typeof MessageBoardRegisterRoute
+  '/message-board/search': typeof MessageBoardSearchRoute
+  '/message-board/whats-new': typeof MessageBoardWhatsNewRoute
+  '/message-board/': typeof MessageBoardIndexRoute
+  '/contact/administrator': typeof LandingContactAdministratorRoute
+  '/contact/banned': typeof LandingContactBannedRoute
+  '/contact/feedback': typeof LandingContactFeedbackRoute
+  '/contact/moderator-application': typeof LandingContactModeratorApplicationRoute
+  '/rooms/$slug': typeof LandingRoomsSlugRoute
+  '/rules/faq': typeof LandingRulesFaqRoute
+  '/message-board/forums/$category': typeof MessageBoardForumsCategoryRoute
+  '/message-board/threads/$id': typeof MessageBoardThreadsIdRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/chat': typeof ChatRoute
+  '/about': typeof LandingAboutRoute
+  '/contact': typeof LandingContactRoute
+  '/disclaimer': typeof LandingDisclaimerRoute
+  '/games': typeof LandingGamesRoute
+  '/gold': typeof LandingGoldRoute
+  '/guide': typeof LandingGuideRoute
+  '/privacy': typeof LandingPrivacyRoute
+  '/reviews': typeof LandingReviewsRoute
+  '/rules': typeof LandingRulesRoute
+  '/terms-of-use': typeof LandingTermsOfUseRoute
+  '/vip': typeof LandingVipRoute
+  '/message-board/login': typeof MessageBoardLoginRoute
+  '/message-board/members': typeof MessageBoardMembersRoute
+  '/message-board/register': typeof MessageBoardRegisterRoute
+  '/message-board/search': typeof MessageBoardSearchRoute
+  '/message-board/whats-new': typeof MessageBoardWhatsNewRoute
+  '/': typeof LandingIndexRoute
+  '/message-board': typeof MessageBoardIndexRoute
+  '/contact/administrator': typeof LandingContactAdministratorRoute
+  '/contact/banned': typeof LandingContactBannedRoute
+  '/contact/feedback': typeof LandingContactFeedbackRoute
+  '/contact/moderator-application': typeof LandingContactModeratorApplicationRoute
+  '/rooms/$slug': typeof LandingRoomsSlugRoute
+  '/rules/faq': typeof LandingRulesFaqRoute
+  '/message-board/forums/$category': typeof MessageBoardForumsCategoryRoute
+  '/message-board/threads/$id': typeof MessageBoardThreadsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_landing': typeof LandingRouteWithChildren
+  '/chat': typeof ChatRoute
+  '/message-board': typeof MessageBoardRouteWithChildren
+  '/_landing/about': typeof LandingAboutRoute
+  '/_landing/contact': typeof LandingContactRoute
+  '/_landing/disclaimer': typeof LandingDisclaimerRoute
+  '/_landing/games': typeof LandingGamesRoute
+  '/_landing/gold': typeof LandingGoldRoute
+  '/_landing/guide': typeof LandingGuideRoute
+  '/_landing/privacy': typeof LandingPrivacyRoute
+  '/_landing/reviews': typeof LandingReviewsRoute
+  '/_landing/rules': typeof LandingRulesRoute
+  '/_landing/terms-of-use': typeof LandingTermsOfUseRoute
+  '/_landing/vip': typeof LandingVipRoute
+  '/message-board/login': typeof MessageBoardLoginRoute
+  '/message-board/members': typeof MessageBoardMembersRoute
+  '/message-board/register': typeof MessageBoardRegisterRoute
+  '/message-board/search': typeof MessageBoardSearchRoute
+  '/message-board/whats-new': typeof MessageBoardWhatsNewRoute
+  '/_landing/': typeof LandingIndexRoute
+  '/message-board/': typeof MessageBoardIndexRoute
+  '/_landing/contact_/administrator': typeof LandingContactAdministratorRoute
+  '/_landing/contact_/banned': typeof LandingContactBannedRoute
+  '/_landing/contact_/feedback': typeof LandingContactFeedbackRoute
+  '/_landing/contact_/moderator-application': typeof LandingContactModeratorApplicationRoute
+  '/_landing/rooms/$slug': typeof LandingRoomsSlugRoute
+  '/_landing/rules_/faq': typeof LandingRulesFaqRoute
+  '/message-board/forums/$category': typeof MessageBoardForumsCategoryRoute
+  '/message-board/threads/$id': typeof MessageBoardThreadsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/chat'
+    | '/message-board'
+    | '/about'
+    | '/contact'
+    | '/disclaimer'
+    | '/games'
+    | '/gold'
+    | '/guide'
+    | '/privacy'
+    | '/reviews'
+    | '/rules'
+    | '/terms-of-use'
+    | '/vip'
+    | '/message-board/login'
+    | '/message-board/members'
+    | '/message-board/register'
+    | '/message-board/search'
+    | '/message-board/whats-new'
+    | '/message-board/'
+    | '/contact/administrator'
+    | '/contact/banned'
+    | '/contact/feedback'
+    | '/contact/moderator-application'
+    | '/rooms/$slug'
+    | '/rules/faq'
+    | '/message-board/forums/$category'
+    | '/message-board/threads/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/chat'
+    | '/about'
+    | '/contact'
+    | '/disclaimer'
+    | '/games'
+    | '/gold'
+    | '/guide'
+    | '/privacy'
+    | '/reviews'
+    | '/rules'
+    | '/terms-of-use'
+    | '/vip'
+    | '/message-board/login'
+    | '/message-board/members'
+    | '/message-board/register'
+    | '/message-board/search'
+    | '/message-board/whats-new'
+    | '/'
+    | '/message-board'
+    | '/contact/administrator'
+    | '/contact/banned'
+    | '/contact/feedback'
+    | '/contact/moderator-application'
+    | '/rooms/$slug'
+    | '/rules/faq'
+    | '/message-board/forums/$category'
+    | '/message-board/threads/$id'
+  id:
+    | '__root__'
+    | '/_landing'
+    | '/chat'
+    | '/message-board'
+    | '/_landing/about'
+    | '/_landing/contact'
+    | '/_landing/disclaimer'
+    | '/_landing/games'
+    | '/_landing/gold'
+    | '/_landing/guide'
+    | '/_landing/privacy'
+    | '/_landing/reviews'
+    | '/_landing/rules'
+    | '/_landing/terms-of-use'
+    | '/_landing/vip'
+    | '/message-board/login'
+    | '/message-board/members'
+    | '/message-board/register'
+    | '/message-board/search'
+    | '/message-board/whats-new'
+    | '/_landing/'
+    | '/message-board/'
+    | '/_landing/contact_/administrator'
+    | '/_landing/contact_/banned'
+    | '/_landing/contact_/feedback'
+    | '/_landing/contact_/moderator-application'
+    | '/_landing/rooms/$slug'
+    | '/_landing/rules_/faq'
+    | '/message-board/forums/$category'
+    | '/message-board/threads/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  LandingRoute: typeof LandingRouteWithChildren
+  ChatRoute: typeof ChatRoute
+  MessageBoardRoute: typeof MessageBoardRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_landing': {
+      id: '/_landing'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof LandingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/message-board': {
+      id: '/message-board'
+      path: '/message-board'
+      fullPath: '/message-board'
+      preLoaderRoute: typeof MessageBoardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_landing/': {
+      id: '/_landing/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof LandingIndexRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/about': {
+      id: '/_landing/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof LandingAboutRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/contact': {
+      id: '/_landing/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof LandingContactRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/disclaimer': {
+      id: '/_landing/disclaimer'
+      path: '/disclaimer'
+      fullPath: '/disclaimer'
+      preLoaderRoute: typeof LandingDisclaimerRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/games': {
+      id: '/_landing/games'
+      path: '/games'
+      fullPath: '/games'
+      preLoaderRoute: typeof LandingGamesRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/gold': {
+      id: '/_landing/gold'
+      path: '/gold'
+      fullPath: '/gold'
+      preLoaderRoute: typeof LandingGoldRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/guide': {
+      id: '/_landing/guide'
+      path: '/guide'
+      fullPath: '/guide'
+      preLoaderRoute: typeof LandingGuideRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/privacy': {
+      id: '/_landing/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof LandingPrivacyRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/reviews': {
+      id: '/_landing/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof LandingReviewsRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/rules': {
+      id: '/_landing/rules'
+      path: '/rules'
+      fullPath: '/rules'
+      preLoaderRoute: typeof LandingRulesRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/terms-of-use': {
+      id: '/_landing/terms-of-use'
+      path: '/terms-of-use'
+      fullPath: '/terms-of-use'
+      preLoaderRoute: typeof LandingTermsOfUseRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/vip': {
+      id: '/_landing/vip'
+      path: '/vip'
+      fullPath: '/vip'
+      preLoaderRoute: typeof LandingVipRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/message-board/': {
+      id: '/message-board/'
+      path: '/'
+      fullPath: '/message-board/'
+      preLoaderRoute: typeof MessageBoardIndexRouteImport
+      parentRoute: typeof MessageBoardRoute
+    }
+    '/message-board/login': {
+      id: '/message-board/login'
+      path: '/login'
+      fullPath: '/message-board/login'
+      preLoaderRoute: typeof MessageBoardLoginRouteImport
+      parentRoute: typeof MessageBoardRoute
+    }
+    '/message-board/members': {
+      id: '/message-board/members'
+      path: '/members'
+      fullPath: '/message-board/members'
+      preLoaderRoute: typeof MessageBoardMembersRouteImport
+      parentRoute: typeof MessageBoardRoute
+    }
+    '/message-board/register': {
+      id: '/message-board/register'
+      path: '/register'
+      fullPath: '/message-board/register'
+      preLoaderRoute: typeof MessageBoardRegisterRouteImport
+      parentRoute: typeof MessageBoardRoute
+    }
+    '/message-board/search': {
+      id: '/message-board/search'
+      path: '/search'
+      fullPath: '/message-board/search'
+      preLoaderRoute: typeof MessageBoardSearchRouteImport
+      parentRoute: typeof MessageBoardRoute
+    }
+    '/message-board/whats-new': {
+      id: '/message-board/whats-new'
+      path: '/whats-new'
+      fullPath: '/message-board/whats-new'
+      preLoaderRoute: typeof MessageBoardWhatsNewRouteImport
+      parentRoute: typeof MessageBoardRoute
+    }
+    '/_landing/contact_/administrator': {
+      id: '/_landing/contact_/administrator'
+      path: '/contact/administrator'
+      fullPath: '/contact/administrator'
+      preLoaderRoute: typeof LandingContactAdministratorRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/contact_/banned': {
+      id: '/_landing/contact_/banned'
+      path: '/contact/banned'
+      fullPath: '/contact/banned'
+      preLoaderRoute: typeof LandingContactBannedRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/contact_/feedback': {
+      id: '/_landing/contact_/feedback'
+      path: '/contact/feedback'
+      fullPath: '/contact/feedback'
+      preLoaderRoute: typeof LandingContactFeedbackRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/contact_/moderator-application': {
+      id: '/_landing/contact_/moderator-application'
+      path: '/contact/moderator-application'
+      fullPath: '/contact/moderator-application'
+      preLoaderRoute: typeof LandingContactModeratorApplicationRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/rooms/$slug': {
+      id: '/_landing/rooms/$slug'
+      path: '/rooms/$slug'
+      fullPath: '/rooms/$slug'
+      preLoaderRoute: typeof LandingRoomsSlugRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/_landing/rules_/faq': {
+      id: '/_landing/rules_/faq'
+      path: '/rules/faq'
+      fullPath: '/rules/faq'
+      preLoaderRoute: typeof LandingRulesFaqRouteImport
+      parentRoute: typeof LandingRoute
+    }
+    '/message-board/forums/$category': {
+      id: '/message-board/forums/$category'
+      path: '/forums/$category'
+      fullPath: '/message-board/forums/$category'
+      preLoaderRoute: typeof MessageBoardForumsCategoryRouteImport
+      parentRoute: typeof MessageBoardRoute
+    }
+    '/message-board/threads/$id': {
+      id: '/message-board/threads/$id'
+      path: '/threads/$id'
+      fullPath: '/message-board/threads/$id'
+      preLoaderRoute: typeof MessageBoardThreadsIdRouteImport
+      parentRoute: typeof MessageBoardRoute
     }
   }
 }
 
+interface LandingRouteChildren {
+  LandingAboutRoute: typeof LandingAboutRoute
+  LandingContactRoute: typeof LandingContactRoute
+  LandingDisclaimerRoute: typeof LandingDisclaimerRoute
+  LandingGamesRoute: typeof LandingGamesRoute
+  LandingGoldRoute: typeof LandingGoldRoute
+  LandingGuideRoute: typeof LandingGuideRoute
+  LandingPrivacyRoute: typeof LandingPrivacyRoute
+  LandingReviewsRoute: typeof LandingReviewsRoute
+  LandingRulesRoute: typeof LandingRulesRoute
+  LandingTermsOfUseRoute: typeof LandingTermsOfUseRoute
+  LandingVipRoute: typeof LandingVipRoute
+  LandingIndexRoute: typeof LandingIndexRoute
+  LandingContactAdministratorRoute: typeof LandingContactAdministratorRoute
+  LandingContactBannedRoute: typeof LandingContactBannedRoute
+  LandingContactFeedbackRoute: typeof LandingContactFeedbackRoute
+  LandingContactModeratorApplicationRoute: typeof LandingContactModeratorApplicationRoute
+  LandingRoomsSlugRoute: typeof LandingRoomsSlugRoute
+  LandingRulesFaqRoute: typeof LandingRulesFaqRoute
+}
+
+const LandingRouteChildren: LandingRouteChildren = {
+  LandingAboutRoute: LandingAboutRoute,
+  LandingContactRoute: LandingContactRoute,
+  LandingDisclaimerRoute: LandingDisclaimerRoute,
+  LandingGamesRoute: LandingGamesRoute,
+  LandingGoldRoute: LandingGoldRoute,
+  LandingGuideRoute: LandingGuideRoute,
+  LandingPrivacyRoute: LandingPrivacyRoute,
+  LandingReviewsRoute: LandingReviewsRoute,
+  LandingRulesRoute: LandingRulesRoute,
+  LandingTermsOfUseRoute: LandingTermsOfUseRoute,
+  LandingVipRoute: LandingVipRoute,
+  LandingIndexRoute: LandingIndexRoute,
+  LandingContactAdministratorRoute: LandingContactAdministratorRoute,
+  LandingContactBannedRoute: LandingContactBannedRoute,
+  LandingContactFeedbackRoute: LandingContactFeedbackRoute,
+  LandingContactModeratorApplicationRoute:
+    LandingContactModeratorApplicationRoute,
+  LandingRoomsSlugRoute: LandingRoomsSlugRoute,
+  LandingRulesFaqRoute: LandingRulesFaqRoute,
+}
+
+const LandingRouteWithChildren =
+  LandingRoute._addFileChildren(LandingRouteChildren)
+
+interface MessageBoardRouteChildren {
+  MessageBoardLoginRoute: typeof MessageBoardLoginRoute
+  MessageBoardMembersRoute: typeof MessageBoardMembersRoute
+  MessageBoardRegisterRoute: typeof MessageBoardRegisterRoute
+  MessageBoardSearchRoute: typeof MessageBoardSearchRoute
+  MessageBoardWhatsNewRoute: typeof MessageBoardWhatsNewRoute
+  MessageBoardIndexRoute: typeof MessageBoardIndexRoute
+  MessageBoardForumsCategoryRoute: typeof MessageBoardForumsCategoryRoute
+  MessageBoardThreadsIdRoute: typeof MessageBoardThreadsIdRoute
+}
+
+const MessageBoardRouteChildren: MessageBoardRouteChildren = {
+  MessageBoardLoginRoute: MessageBoardLoginRoute,
+  MessageBoardMembersRoute: MessageBoardMembersRoute,
+  MessageBoardRegisterRoute: MessageBoardRegisterRoute,
+  MessageBoardSearchRoute: MessageBoardSearchRoute,
+  MessageBoardWhatsNewRoute: MessageBoardWhatsNewRoute,
+  MessageBoardIndexRoute: MessageBoardIndexRoute,
+  MessageBoardForumsCategoryRoute: MessageBoardForumsCategoryRoute,
+  MessageBoardThreadsIdRoute: MessageBoardThreadsIdRoute,
+}
+
+const MessageBoardRouteWithChildren = MessageBoardRoute._addFileChildren(
+  MessageBoardRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  LandingRoute: LandingRouteWithChildren,
+  ChatRoute: ChatRoute,
+  MessageBoardRoute: MessageBoardRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -156,19 +156,19 @@
 }
 
 /* Continuous emoji marquee strip at the very top of landing pages */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @utility marquee-track {
   display: flex;
   width: max-content;
   animation: marquee-scroll 30s linear infinite;
-
-  @keyframes marquee-scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

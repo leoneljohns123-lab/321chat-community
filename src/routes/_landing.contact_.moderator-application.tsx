@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, PageBody } from "@/components/landing/PageChrome";
 import { InquiryForm } from "@/components/landing/InquiryForm";
 
-export const Route = createFileRoute("/_landing/contact/moderator-application")({
+export const Route = createFileRoute("/_landing/contact_/moderator-application")({
   head: () => ({
     meta: [
       { title: "Moderator Application — 321.Chat" },

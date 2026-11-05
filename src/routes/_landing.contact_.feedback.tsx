@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, PageBody } from "@/components/landing/PageChrome";
 import { InquiryForm } from "@/components/landing/InquiryForm";
 
-export const Route = createFileRoute("/_landing/contact/feedback")({
+export const Route = createFileRoute("/_landing/contact_/feedback")({
   head: () => ({
     meta: [
       { title: "Feedback & Complaints — 321.Chat" },
