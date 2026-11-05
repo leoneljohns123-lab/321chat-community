@@ -11,20 +11,22 @@ export const Route = createFileRoute("/_landing/rooms/$slug")({
     return { room };
   },
   head: ({ loaderData }) => {
-    const room = (loaderData as { room: Room }).room;
-    return [
-      { title: `${room.label} — 321.Chat` },
-      {
-        name: "description",
-        content: `${room.label} on 321.Chat: ${room.subtitle} Free, moderated, no download required.`,
-      },
-      { property: "og:title", content: `${room.label} — 321.Chat` },
-      {
-        property: "og:description",
-        content: `${room.subtitle} Free, moderated, no download required.`,
-      },
-      { property: "og:type", content: "website" },
-    ];
+    const room = loaderData?.room;
+    return {
+      meta: [
+        { title: `${room?.label ?? "Chat Room"} — 321.Chat` },
+        {
+          name: "description",
+          content: `${room?.label ?? "Chat room"} on 321.Chat: ${room?.subtitle ?? ""} Free, moderated, no download required.`,
+        },
+        { property: "og:title", content: `${room?.label ?? "Chat Room"} — 321.Chat` },
+        {
+          property: "og:description",
+          content: `${room?.subtitle ?? "Free, moderated chat"} Free, moderated, no download required.`,
+        },
+        { property: "og:type", content: "website" },
+      ],
+    };
   },
   component: RoomLandingPage,
 });
