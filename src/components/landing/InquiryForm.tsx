@@ -39,12 +39,12 @@ export function InquiryForm({
     e.preventDefault();
     const next: Record<string, string> = {};
     fields.forEach((f) => {
-      if (f.required && !values[f.name]?.trim())
-        next[f.name] = `${f.label} is required.`;
-      if (f.type === "email" && values[f.name] && !values[f.name].includes("@"))
-        next[f.name] = "Enter a valid email address.";
+      if (f.required && !values[f.name as string]?.trim())
+        next[f.name as string] = `${f.label} is required.`;
+      if (f.type === "email" && values[f.name as string] && !values[f.name as string].includes("@"))
+        next[f.name as string] = "Enter a valid email address.";
     });
-    if (messageRequired && !values.message?.trim())
+    if (messageRequired && !values["message"]?.trim())
       next.message = `${messageLabel} is required.`;
     setErrors(next);
     if (Object.keys(next).length) return;
@@ -111,7 +111,7 @@ export function InquiryForm({
           <label className="grid gap-1.5">
             <span className="text-sm font-medium">{subjectLabel}</span>
             <select
-              value={values.subject ?? ""}
+              value={values["subject"] ?? ""}
               onChange={(e) => set("subject", e.target.value)}
               className="rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring"
             >
@@ -131,7 +131,7 @@ export function InquiryForm({
           </span>
           <textarea
             rows={6}
-            value={values.message ?? ""}
+            value={values["message"] ?? ""}
             onChange={(e) => set("message", e.target.value)}
             className={cn(
               "rounded-md border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring",
