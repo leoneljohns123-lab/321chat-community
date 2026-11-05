@@ -46,7 +46,7 @@ export function InquiryForm({
         next[f.name] = "Enter a valid email address.";
     });
     if (messageRequired && !values["message"]?.trim())
-      next.message = `${messageLabel} is required.`;
+      next["message"] = `${messageLabel} is required.`;
     setErrors(next);
     if (Object.keys(next).length) return;
     setStatus("sending");
