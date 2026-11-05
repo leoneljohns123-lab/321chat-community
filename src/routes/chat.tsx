@@ -136,7 +136,7 @@ function ChatFooter() {
 }
 
 function ChatRoom({ nickname, onExit }: { nickname: string; onExit: () => void }) {
-  const [roomId, setRoomId] = useState(mockRooms[0].id);
+  const [roomId, setRoomId] = useState(mockRooms[0]?.id ?? "free");
   const [messages, setMessages] = useState<MockMessage[]>(mockMessages);
   const [draft, setDraft] = useState("");
   const [showUsers, setShowUsers] = useState(true);
